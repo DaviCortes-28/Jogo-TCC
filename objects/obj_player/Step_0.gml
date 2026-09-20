@@ -47,15 +47,16 @@ if (velh == 0 && velv == 0) {
 npc_mais_proximo = noone;
 dist_menor = 16;
 
-if (keyboard_check_pressed(ord("E"))) {
+if (keyboard_check_pressed(ord("E")) && !obj_dialogue.dialogo_ativo && obj_dialogue.cooldown <= 0) {
 
-    with (obj_EU) {
+    with (obj_crackudo) {
         var d = distance_to_object(other);
         if (d < other.dist_menor) {
             other.npc_mais_proximo = id;
             other.dist_menor = d;
         }
     }
+	  show_debug_message("npc_mais_proximo: " + string(npc_mais_proximo) + " | dist_menor: " + string(dist_menor));
 
     if (npc_mais_proximo != noone) {
         var frases_npc = npc_mais_proximo.minhas_frases;
@@ -72,3 +73,4 @@ if (keyboard_check_pressed(ord("E"))) {
         }
     }
 }
+

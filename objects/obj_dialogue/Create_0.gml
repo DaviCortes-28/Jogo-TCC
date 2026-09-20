@@ -8,3 +8,5 @@ char_atual = 0;
 velocidade_texto = 10;
 
 npc_instancia = noone;
+
+cooldown = 0; 

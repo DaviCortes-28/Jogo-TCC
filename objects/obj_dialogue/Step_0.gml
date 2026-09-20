@@ -1,3 +1,5 @@
+if (cooldown > 0) cooldown -= 1;
+
 if (dialogo_ativo) {
     // Typewriter
     if (char_atual < string_length(frases[frase_atual])) {
@@ -7,18 +9,18 @@ if (dialogo_ativo) {
             char_atual += velocidade_texto;
         }
     } else {
-        // Texto completo, aperta espaço para avançar
-        if (keyboard_check_pressed(vk_space)) {
+        // Texto completo, aperte E para avançar
+        if (keyboard_check_pressed(ord("E"))) {
             frase_atual++;
             char_atual = 0;
             
-            // Fim do diálogo
-            if (frase_atual >= array_length(frases)) {
-                dialogo_ativo = false;
-                frase_atual = 0;
-                frases = [];
-                char_atual = 0;
-                obj_player.pode_mover = true;
+if (frase_atual >= array_length(frases)) {
+    dialogo_ativo = false;
+    frase_atual = 0;
+    frases = [];
+    char_atual = 0;
+    obj_player.pode_mover = true;
+    cooldown = 10;   // NOVO — trava reabertura por 10 frames
                 
                 // Explosão e destruição do NPC (só se desaparece = true)
                 if (npc_instancia != noone && npc_instancia.desaparece) {

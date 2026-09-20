@@ -16,9 +16,5 @@
 		
 	//iniciando direcao do sprite
 	dir = "down"
-
-
-
-
+	
 window_set_fullscreen(true);
-audio_play_sound(aud_trilha, 1, true);
