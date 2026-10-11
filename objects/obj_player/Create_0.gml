@@ -18,3 +18,13 @@
 	dir = "down"
 	
 window_set_fullscreen(true);
+
+// Se veio de uma porta, nasce na posição definida por ela
+if (variable_global_exists("spawn_x") && global.spawn_x != undefined) {
+    x = global.spawn_x;
+    y = global.spawn_y;
+    global.spawn_x = undefined;
+    global.spawn_y = undefined;
+}
+
+
